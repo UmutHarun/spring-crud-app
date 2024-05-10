@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Countries from './components/Countries';
 import Header from './components/Header';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <div>
       {/* <Header /> */}
         <Routes>
+          <Route path="/" element={<Dashboard />} />
           <Route path="/Countries" element={<Countries />} />
-          {/* Diğer rotaları buraya ekleyin */}
         </Routes>
       </div>
     </Router>

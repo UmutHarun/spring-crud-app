@@ -2,6 +2,7 @@ import React , {useState , useEffect} from 'react'
 import Header from './Header'
 import "../styles/Header.css"
 import CountryService from '../services/CountryService';
+// import "../styles/bootstrap/bootstrap.css"
 
 export default function Countries() {
 
@@ -28,16 +29,43 @@ export default function Countries() {
     };
 }, []);
 
+  const tableStyle = {
+    border: '2px solid black', 
+    borderCollapse: 'collapse', 
+    captionSide: "bottom",
+  };
+
   return (
     <div>
       <Header />
       <div className='page-content'>
           {error && <p>Error: {error}</p>}
-          <ul>
+          <table style={tableStyle}>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Capital</th>
+                <th>Continent</th>
+                <th>Description</th>
+                <th>Nationality</th>
+              </tr>
+            </thead>
+            <tbody>
               {countries.map(country => (
-                  <li key={country.id}>{country.name}</li>
+                  <tr>
+                    <td>{country["id"]}</td>
+                    <td>{country["name"]}</td>
+                    <td>{country["code"]}</td>
+                    <td>{country["capital"]}</td>
+                    <td>{country["continent"]}</td>
+                    <td>{country["description"]}</td>
+                    <td>{country["nationality"]}</td>
+                  </tr>
               ))}
-          </ul>
+            </tbody>
+          </table>
       </div>
     </div>
   )
