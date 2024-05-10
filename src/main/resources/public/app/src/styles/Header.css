@@ -147,10 +147,6 @@ body {
   margin-top: 35px;
 }
 
-.page-header .admin-menu li:nth-last-child(2) {
-  margin-bottom: 35px;
-}
-
 .page-header .admin-menu li:last-child {
   margin-top: auto;
   margin-bottom: 20px;
@@ -211,7 +207,7 @@ body {
   position: relative;
   left: var(--page-header-width);
   width: calc(100% - var(--page-header-width));
-  min-height: 100vh;
+  min-height: 10vh;
   padding: 30px;
   color: var(--page-content-txtColor);
   background: var(--page-content-bgColor);
