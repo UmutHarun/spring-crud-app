@@ -8,27 +8,31 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table
+@Table(name = "country")
+@NoArgsConstructor
 @AllArgsConstructor
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String name;
+
     private String code;
 
     private String capital;
 
-    private String desciption;
+    private String description;
 
     private String nationality;
 
     private String continent;
 
-    @OneToMany(mappedBy = "country")
-    private java.util.List<State> states;
+    // @OneToMany(mappedBy = "country")
+    // private java.util.List<State> states;
 
 }

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class CountryService {
   constructor() {
-    this.baseUrl = 'http://example.com/api'; // API'nizin temel URL'sini buraya girin
+    this.baseUrl = 'http://localhost:8092/api'; 
   }
 
   async getCountries() {
