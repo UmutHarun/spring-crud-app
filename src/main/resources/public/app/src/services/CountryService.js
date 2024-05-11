@@ -45,6 +45,17 @@ class CountryService {
       throw error;
     }
   }
+
+  async deleteCountry(id){
+    try{
+      let country = this.getCountry(id);
+      await axios.delete(`${this.baseUrl}/delete-country/${id}`,country);
+    } catch (error) {
+      console.error('Error fetching countries:', error);
+      console.error(error.response.data)
+      throw error;
+    }
+  }
 }
 
 export default CountryService;

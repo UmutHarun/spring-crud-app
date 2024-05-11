@@ -28,7 +28,7 @@ export default function Countries() {
     return () => {
         // Perform any cleanup if needed
     };
-  }, []);
+  }, [countries]);
 
   const tableStyle = {
     border: '2px solid black', 
@@ -41,8 +41,12 @@ export default function Countries() {
   }
 
   function editCountryPushHandler(id){
-    
     navigate(`/edit-country/${id}`);
+  }
+
+  function deleteCountryPushHandler(id){
+    let countryService = new CountryService();
+    countryService.deleteCountry(id);
   }
 
   return (
@@ -72,7 +76,10 @@ export default function Countries() {
                     <td>{country["continent"]}</td>
                     <td>{country["description"]}</td>
                     <td>{country["nationality"]}</td>
-                    <button className='btn btn-success' onClick={() => editCountryPushHandler(country["id"])}>Edit</button>
+                    <div style={{display:'flex'}}>
+                      <button className='btn btn-success' onClick={() => editCountryPushHandler(country["id"])}>Edit</button>
+                      <button className='btn btn-danger' onClick={() => deleteCountryPushHandler(country["id"])}>Delete</button>
+                    </div>
                   </tr>
               ))}
             </tbody>

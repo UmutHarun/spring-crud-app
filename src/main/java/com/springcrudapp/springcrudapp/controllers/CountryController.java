@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,5 +59,11 @@ public class CountryController {
         country.setNationality(newCountry.getNationality());
         countryService.editCountry(country);
         return ResponseEntity.ok(country);
+    }
+
+    @DeleteMapping("/delete-country/{id}")
+    public ResponseEntity deleteCountry(@PathVariable Integer id){
+        countryService.deleteCountry(id);
+        return ResponseEntity.ok().build();
     }
 }
