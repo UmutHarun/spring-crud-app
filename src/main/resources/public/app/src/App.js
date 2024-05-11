@@ -12,7 +12,8 @@ function App() {
       {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/Countries" element={<Countries />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/countries" element={<Countries />} />
         </Routes>
       </div>
     </Router>

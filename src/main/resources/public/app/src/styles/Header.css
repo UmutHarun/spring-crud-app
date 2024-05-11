@@ -200,6 +200,13 @@ body {
   fill: var(--blue);
 }
 
+.selected{
+  fill: var(--blue);
+  background: var(--page-header-bgColor-hover);
+  color: var(--blue);
+  outline: none;
+}
+
 
 /* PAGE CONTENT STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

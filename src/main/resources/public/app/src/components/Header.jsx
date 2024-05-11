@@ -1,9 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import '../styles/Header.css';
 import NavItem from './NavItem';
 import NavItemDropdown from './NavItemDropdown';
 
 const Header = () => {
+
 
   return (
    <header>
