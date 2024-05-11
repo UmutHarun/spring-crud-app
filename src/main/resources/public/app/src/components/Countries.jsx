@@ -2,10 +2,11 @@ import React , {useState , useEffect} from 'react'
 import Header from './Header'
 import "../styles/Header.css"
 import CountryService from '../services/CountryService';
+import { useNavigate } from 'react-router-dom';
 // import "../styles/bootstrap/bootstrap.css"
 
 export default function Countries() {
-
+  const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
 
@@ -27,13 +28,22 @@ export default function Countries() {
     return () => {
         // Perform any cleanup if needed
     };
-}, []);
+  }, []);
 
   const tableStyle = {
     border: '2px solid black', 
     borderCollapse: 'collapse', 
     captionSide: "bottom",
   };
+
+  function addCountryPushHandler(){
+    navigate("/add-country");
+  }
+
+  function editCountryPushHandler(id){
+    
+    navigate(`/edit-country/${id}`);
+  }
 
   return (
     <div>
@@ -62,10 +72,12 @@ export default function Countries() {
                     <td>{country["continent"]}</td>
                     <td>{country["description"]}</td>
                     <td>{country["nationality"]}</td>
+                    <button className='btn btn-success' onClick={() => editCountryPushHandler(country["id"])}>Edit</button>
                   </tr>
               ))}
             </tbody>
           </table>
+          <button className='btn btn-success' onClick={addCountryPushHandler}>Add Country</button>
       </div>
     </div>
   )
